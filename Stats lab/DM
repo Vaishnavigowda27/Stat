@@ -1,0 +1,112 @@
+1. Preprocessing Filters
+Filters → Unsupervised → Attributes
+
+RemoveType (parameter)
+
+Nominal → Apply
+Numeric → Apply
+
+
+2. Attribute Selection & Training
+Step 1: Train decision tree
+Step 2: Select attributes
+
+Use Attribute Evaluator → InfoGainAttributeEval
+
+Rank attributes using IG score
+
+Search Method: Ranker
+
+Remove attributes with low IG score (i.e., IG = 0)
+
+Train decision tree again
+
+
+3. Preprocessing & Classification
+Preprocess tab:
+
+Upload file → Filter → Normalize → Classify
+Classifier: J48
+
+
+4. Model Training
+Use either Naive Bayes or Decision Tree
+
+Try Percentage Split:
+
+60:40
+
+70:30
+
+80:20
+
+Compare accuracy and interpret results
+
+
+5. Cross Validation
+Train using:
+
+Naive Bayes or Decision Tree
+
+Perform Cross Validation:
+5-fold
+10-fold
+Compare results
+
+
+6. Model Comparison
+Classify → Bayes → NaiveBayes
+
+Try removing/combining features
+
+Compare different models
+
+
+7. Same as Step 6 for Decision Trees
+
+
+8. Theory Part
+Study theoretical concepts
+
+
+9. Pruning Experiment
+First: Train decision tree without pruning
+
+Then:
+
+Classify → J48
+
+Reduced Error Pruning → True (parameter)
+
+N = 5 → Not needed
+
+Compare cross-validation results (5-fold vs 10-fold)
+
+
+10. Iris Dataset Workflow
+Step 1:
+
+Classify → Trees → J48
+
+Write the decision tree
+
+Classify → Rules:
+
+PART → Write the rules
+
+OneR → Write the rules
+
+
+11. Clustering
+Cluster → Simple k-means
+
+Parameter: Classes to clusters evaluation
+
+Set k values
+
+
+12. SVM Classification
+Classify → SMO
+
+Use cross-validation
+

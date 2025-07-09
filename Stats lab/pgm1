@@ -1,0 +1,23 @@
+# Load the built-in dataset
+data(mtcars)
+
+# View the dataset
+head(mtcars)
+
+# Compute correlation between mpg (Miles per Gallon) and hp (Horsepower)
+correlation <- cor(mtcars$mpg, mtcars$hp)
+
+# Print the correlation
+print(paste("correlation between mpg and hp is:", round(correlation, 2)))
+
+# Create scatter plot with regression line
+library(ggplot2)
+ggplot(data = mtcars, aes(x = hp, y = mpg)) +
+  geom_point(shape = 4, color = "blue", size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "MPG vs HorsePower",
+    x = "HorsePower (HP)",
+    y = "Miles per Gallon (mpg)"
+  ) +
+  theme_minimal()
