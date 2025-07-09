@@ -1,0 +1,9 @@
+# Scores of 10 students in SMIP and DBMS
+SMIP <- c(70, 46, 94, 34, 20, 86, 18, 12, 56, 64, 42)
+DBMS <- c(60, 66, 90, 46, 16, 98, 24, 8, 32, 54, 62)
+
+# Compute Spearman rank correlation
+spearman_corr <- cor(SMIP, DBMS, method = "spearman")
+
+# Print the result rounded to 3 decimal places
+print(paste("Spearman rank correlation :", round(spearman_corr, 3)))
