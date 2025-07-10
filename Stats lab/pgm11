@@ -1,0 +1,17 @@
+library(ggplot2)
+library(forecast)
+library(lubridate)
+drug_sales <- read.csv("C:AusAntidiabaticDrug.csv")
+drug_sales$ds <- as.Date(drug_sales$ds,format="%m%d%Y")
+drug_sales <- drug_sales[order(drug_sales$ds)]
+start_year <- 1991
+start_month <- 1
+print(start_year)
+print(start_month)
+ts_data <- ts(drug_sales $y,start=c(start_year,start_month),frequency=12)
+autoplot(ts_data)+
+ggtith("australian drug sales time series")+
+xlab("year")+
+ylab("sales(y)")
+decomposed <- decompose(ts_data)
+plot(decomposed)
