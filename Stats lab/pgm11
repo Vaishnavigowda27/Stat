@@ -1,0 +1,32 @@
+# Load necessary libraries
+library(ggplot2)
+library(forecast)
+library(lubridate)
+
+# Load dataset
+drug_sales <- read.csv("C:/AusAntidiabaticDrug.csv")  # Corrected file path
+
+# Convert 'ds' column to Date format
+drug_sales$ds <- as.Date(drug_sales$ds, format = "%m%d%Y")
+
+# Order by date
+drug_sales <- drug_sales[order(drug_sales$ds), ]
+
+# Create time series object
+start_year <- 1991
+start_month <- 1
+
+# ts_data: Monthly time series starting from Jan 1991
+ts_data <- ts(drug_sales$y, start = c(start_year, start_month), frequency = 12)
+
+# Plot time series
+autoplot(ts_data) +
+  ggtitle("Australian Drug Sales Time Series") +  # Fixed typo: ggtith → ggtitle
+  xlab("Year") +
+  ylab("Sales (y)")
+
+# Decompose the time series
+decomposed <- decompose(ts_data)
+
+# Plot decomposed components
+plot(decomposed)
