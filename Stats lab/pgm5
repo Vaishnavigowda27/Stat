@@ -3,7 +3,7 @@ library(readxl)
 library(ggplot2)
 
 # Read the dataset from the Excel file and print the summary of it
-df <- read_excel("baggagecomplaints.xlsx", sheet = "baggagecomplaints")
+df <- read.csv("baggagecomplaints.csv", sheet = "baggagecomplaints")
 print(summary(df))
 
 # Calculate average baggage complaints per airline
