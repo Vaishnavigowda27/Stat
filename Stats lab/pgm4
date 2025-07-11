@@ -1,0 +1,15 @@
+library(readr) 
+# Load the data 
+df <- read.csv("treatmentfacility.csv") 
+# 1. Summary statistics 
+print(summary(df))
+#Plot Employee Turnover 
+ggplot(df, aes(x = Reengineer, y = EmployeeTurnover, fill = Reengineer)) + 
+geom_boxplot() + 
+labs(title = "Employee Turnover Before and After Reengineering") + 
+theme_minimal() 
+
+# Plot TRFF 
+ggplot(df, aes(x = Reengineer, y = TRFF, fill = Reengineer)) + 
+geom_boxplot() + 
+labs(title = "TRFF (%) Before and After Reengineering") + theme_minimal()
