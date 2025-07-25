@@ -1,1 +1,2 @@
-Statistics Laboratory Programs using R language
+Statistics Lab Programs using R language
+
