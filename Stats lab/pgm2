@@ -1,30 +1,10 @@
-# Load the built-in dataset mtcars and display it
-data()
-mtcars
-
-# Load ggplot2 library
-library(ggplot2)
-
-# Create Q-Q plot for normality check on mpg (miles per gallon) values
-ggplot(data = mtcars, aes(sample = mpg)) +
-  stat_qq() +
-  stat_qq_line() +
-  labs(title = "Q-Q plot for MPG",
-       x = "Theoretical Quantiles",
-       y = "MPG (sample)") +
-
-  theme_minimal()
-
-
-(OR)
-
 
 data(mtcars)
-library(ggplot2)
 
 correlation <- cor(mtcars$mpg, mtcars$hp)
 print(paste("correlation between mpg and hp is:", round(correlation, 2)))
 
+library(ggplot2)
 ggplot(data = mtcars, aes(sample = mpg)) +
   stat_qq() +                          
   stat_qq_line() +                     
@@ -34,3 +14,4 @@ ggplot(data = mtcars, aes(sample = mpg)) +
     y = "MPG (sample)"
   ) +
   theme_minimal()
+
