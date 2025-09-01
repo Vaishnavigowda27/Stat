@@ -1,51 +1,16 @@
-# Load required libraries
-library(readr)
-library(dplyr)
-library(GGally)
-
-# Part 1: Patient Satisfaction Dataset
-
-# Load the Patient Satisfaction dataset
-data <- read_csv("C:/Users/hp/Desktop/Stats Lab Dataset/patient-feedback.csv")
-
-# Display summary statistics for all numeric columns
-cat("Summary Statistics for Patient Satisfaction Dataset:\n")
+data <- read.csv("C:/Users/Admin/Downloads/patient-feedback.csv")
 summary(data)
 
-# Part 2: Fitness Dataset Analysis
+fitness <- read.csv("C:/Users/Admin/Downloads/CardioGoodFitness.csv")
+num_data <- fitness[sapply(fitness, is.numeric)]
 
-# Load the Fitness dataset
-fitness <- read_csv("C:/Users/hp/Desktop/Stats Lab Dataset/CardioGoodFitness.csv")
+library(GGally)
 
-# Select only continuous (numeric) variables
-numeric_data <- fitness[sapply(fitness, is.numeric)]
-
-# Create scatterplot matrix of numeric variables
-ggpairs(numeric_data)
-
-# Compute correlation matrix
-cor_matrix <- cor(numeric_data)
-
-# Print the full correlation matrix
-cat("\nCorrelation Matrix:\n")
-print(cor_matrix)
-
-# Keep only upper triangle of correlation matrix
-cor_matrix[lower.tri(cor_matrix, diag = TRUE)] <- NA
-
-# Convert matrix to data frame and drop NA values
-cor_values <- as.data.frame(as.table(cor_matrix))
-cor_values <- na.omit(cor_values)
-
-# Find the strongest positive correlation
-strongest_pos <- cor_values[which.max(cor_values$Freq), ]
-
-# Find the strongest negative correlation
-strongest_neg <- cor_values[which.min(cor_values$Freq), ]
-
-# Display results
-cat("\nStrongest Positive Correlation:\n")
-print(strongest_pos)
-
-cat("\nStrongest Negative Correlation:\n")
-print(strongest_neg)
+ggpairs(num_data)
+cor_matrix <- cor(num_data)
+cor_matrix
+cor_matrix[lower.tri(cor_matrix, diag=TRUE)] <- NA
+pos <- which.max(cor_matrix)
+neg <- which.min(cor_matrix)
+cat("Strongest Positive Correlation:", names(cor_matrix)[pos], "=", max(cor_matrix, na.rm=TRUE), "\n")
+cat("Strongest Negative Correlation:", names(cor_matrix)[neg], "=", min(cor_matrix, na.rm=TRUE), "\n")
