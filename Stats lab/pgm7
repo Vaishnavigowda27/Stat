@@ -1,15 +1,18 @@
 # Load dataset
-data <- read.csv("C:/Users/hp/Desktop/Stats Lab Dataset/fishstory.csv")
+data <- read.csv("C:/Users/Admin/Downloads/fishstory.csv")
 
-# Perform paired t-test between 1970 and 1980 fish prices
-t_test_result <- t.test(data$`Price1980`, data$`Price1970`, paired = TRUE)
-
-# Print full test result
+# Paired t-test (1970 vs 1980 prices)
+t_test_result <- t.test(data$Price1980, data$Price1970, paired = TRUE)
 print(t_test_result)
 
-# Calculate mean difference
-mean_diff <- mean(data$`Price1980` - data$`Price1970`, na.rm = TRUE)
+# Mean difference
+mean_diff <- mean(data$Price_1980 - data$Price_1970, na.rm = TRUE)
 cat("Mean difference in price (1980 - 1970):", mean_diff, "\n")
-
-# Print confidence interval
 cat("95% Confidence Interval:", t_test_result$conf.int, "\n")
+
+# Interpretation
+if (t_test_result$p.value < 0.05) {
+  cat("Conclusion: Significant increase in fish prices from 1970 to 1980 → evidence of overfishing.\n")
+} else {
+  cat("Conclusion: No significant price increase → no strong evidence of overfishing.\n")
+}
