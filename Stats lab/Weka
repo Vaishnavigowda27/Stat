@@ -1,0 +1,111 @@
+1: 
+step 1: go to weka explorer
+step 2: go to preprocess
+step 3: go to open file and load the dataset
+step 4: go to filters and choose unsupervised filters
+step 5: go to attributes and choose remove type
+step 6: go to remove type and in attribute type choose delete nominal attributes and apply
+step 6: next load the dataset again and choose delete numeric attributes and apply
+
+
+
+2: 
+step 1: go to choose files and load the dataset
+step 2: apply remove in filters and apply
+step 3: go to classify tab and choose j48 tree, use training set
+step 4: note down accuracy and confusion matrix
+step 5: go to select attributes tab and choose infogain attribute eval and start
+step 6: note down first 10 attributes and follow step 3-5
+step 7: then do the same for next 6 attributes
+
+
+
+3: 
+step 1: go to open files and load the dataset
+step 2: go to classify tab
+step 3: choose j48 tree and choose training set and start
+step 4: after running right click on the tree and visualise tree
+
+
+
+4:
+step 1: open files and load dataset
+step 2: go to classify tab and choose j48 tree
+step 3: choose percentage split like [60-40, 80-20]
+step 4: click start and note down accuracy
+
+
+
+5:
+step 1: open files and load dataset
+step 2: go to classify tab and choose j48 tree
+step 3: choose cross validation and select 10 folds
+step 4: click start and note down the accuracy
+
+
+
+6:
+step 1: open dataset
+step 2: select preferred attributes and remove them
+step 3: classify tab and go to j48 trees
+step 4: click start and note down accuracy
+
+
+
+7:
+step 1: load dataset
+step 2: go to classify and j48 tree 
+step 3: cross validation 10 folds 
+step 4: start and note down the accuracy
+step 5: compare with the values got in previous program where few attributes were removed
+
+
+
+8:
+step 1: open weka and load dataset
+step 2: go to classify and choose j48 trees
+step 3: go to j48 configurations
+step 4: for complex tree set unpruned=true and minnumobj=1
+step 5: run for cross validation 10 folds and record results
+step 6: for simple tree set unpruned=false and minnumobj=5 or 10
+step 6: run and note down results
+step 7: compare the models on accuracy and confusion matrix
+step 8: conclude if pruned is better or unpruned
+
+
+
+9: 
+step 1: load dataset and go to classify tab
+step 2: choose REP tree
+step 3: click on REP tree and go to its configurations
+step 4: set nopruning=false and numfolds=3 or 10
+step 5: cross validation 10 folds and click ok
+step 6: evaluate model
+
+
+
+10:
+step 1:  open dataset and select attributes
+step 2: go to classify and choose j48 trees and visualise the tree and infer results
+step 3: open classify, go to rules and select oneR and infer the results
+step 4: open classify, go to rules and select PART and infer results
+step 5: compare results of all algorithms used
+
+
+
+11:
+step 1: open files and load dataset
+step 2: remove the class attribute because clustering is unsupervised
+step 3: go to cluster tab
+step 4: click on choose and select simplekmeans
+step 5: click on configuration, set numcluster=3
+step 6: click start
+
+
+
+12:
+step 1: load dataset
+step 2: go to classify, choose functions, choose SMO
+step 3: start and note down the results
+step 4: similarly train it for j48 as well
+step 5: compare both models
